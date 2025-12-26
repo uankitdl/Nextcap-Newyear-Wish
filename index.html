@@ -32,7 +32,6 @@ body {
     animation: snowFall linear infinite, snowDrift ease-in-out infinite;
 }
 
-
 @keyframes snowFall {
     from { transform: translateY(-10vh); }
     to   { transform: translateY(110vh); }
@@ -49,11 +48,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-@keyframes pulseGlow {
-    0%, 100% { text-shadow: 0 0 5px rgba(250, 204, 21, 0.2); }
-    50% { text-shadow: 0 0 15px rgba(250, 204, 21, 0.6); transform: scale(1.02); }
-}
-
 .card {
     position: relative;
     z-index: 2;
@@ -63,23 +57,15 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 32px;
     padding: 44px 36px;
-
     width: 660px;
     min-height: 230px;
-
     text-align: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-    overflow: visible;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-
-
-
 
 .logo {
     font-size: 2.6rem;
@@ -88,12 +74,10 @@ body {
     margin-bottom: 6px;
     text-transform: uppercase;
     display: inline-block;
-
     background: linear-gradient(90deg, #fde68a, #facc15, #fb7185, #fde68a);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
     animation: gradientShift 4s ease infinite, floatLogo 3s ease-in-out infinite;
     text-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
 }
@@ -103,35 +87,19 @@ body {
     50% { transform: translateY(-6px); }
 }
 
-.welcome-msg {
-    font-size: 0.9rem;
-    color: #fde68a;
-    margin-bottom: 4px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-
 h1 {
     font-size: 2.2rem;
     font-weight: 700;
     margin: 12px 0;
-    padding: 6px 4px;
-
     background: linear-gradient(90deg, #bae6fd, #fde68a, #fb7185, #bae6fd);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
     animation: gradientShift 4s ease infinite;
     line-height: 1.6;
     transition: opacity 0.3s ease;
-
     white-space: nowrap;
-    overflow: visible;
 }
-
-
 
 .divider {
     width: 80px;
@@ -148,52 +116,45 @@ h1 {
     font-weight: 600;
 }
 
-.share-btn {
-    margin-top: 30px;
-    background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(255, 255, 255, 0.05));
-    border: 1px solid rgba(250, 204, 21, 0.3);
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 0.9em;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-.share-btn:hover {
-    background: rgba(250, 204, 21, 0.3);
-    transform: translateY(-3px);
-    border-color: #facc15;
-    box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.2);
+/* FLOATING CONTACT BUTTON */
+.contact-botton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
 }
 
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    z-index: 10;
-    pointer-events: none;
+.contact-botton a {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    color: #fde68a;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.contact-botton a:hover {
+    background: rgba(250, 204, 21, 0.2);
+    border-color: #facc15;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px 0 rgba(250, 204, 21, 0.2);
 }
 
 @media (max-width: 800px) {
-    .card {
-        width: 95vw;
-        min-height: auto;
-        padding: 36px 24px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        white-space: normal;
-        line-height: 1.6;
-    }
+    .card { width: 95vw; padding: 36px 24px; }
+    h1 { font-size: 1.8rem; white-space: normal; }
+    .contact-botton { bottom: 15px; right: 15px; }
 }
-
-
-
 </style>
 </head>
 <body>
@@ -202,105 +163,58 @@ h1 {
 
 <div class="card">
     <div class="logo">2026</div>
-    <div class="welcome-msg"></div>
-
-    
     <h1 id="langText" aria-live="polite">Happy New Year</h1>
-    
     <div class="divider"></div>
     <div class="footer">— Nextcap Enterprises —</div>
-    
+</div>
+
+<div class="contact-botton">
+    <a href="mailto:hr@nextcapenterprises.com">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+        </svg>
+        Contact Us
+    </a>
 </div>
 
 <script>
-/* SNOWFALL LOGIC */
 const snowContainer = document.getElementById("snow");
 const flakeCount = window.innerWidth < 600 ? 80 : 180;
 const snowColors = ['#facc15', '#60a5fa', '#fb7185', '#34d399', '#a78bfa', '#fde68a'];
 
 for (let i = 0; i < flakeCount; i++) {
     const s = document.createElement("span");
-
     const size = (Math.random() * 4 + 2) + "px";
     s.style.width = size;
     s.style.height = size;
     s.style.left = Math.random() * 100 + "vw";
-
-    // Start above viewport so falling is visible immediately
     s.style.top = "-10vh";
-
     s.style.backgroundColor = snowColors[Math.floor(Math.random() * snowColors.length)];
-
-    const fallDuration = 6 + Math.random() * 6;  // 6–12 seconds
+    const fallDuration = 6 + Math.random() * 6;
     const driftDuration = 3 + Math.random() * 4;
-
     s.style.animationDuration = `${fallDuration}s, ${driftDuration}s`;
-
-    // Negative delay makes animation appear already in progress
     s.style.animationDelay = `-${Math.random() * fallDuration}s, 0s`;
-
     snowContainer.appendChild(s);
 }
 
-
-
-
-/* Confetti Burst */
-function createConfetti() {
-    const colors = ['#facc15', '#60a5fa', '#fb7185', '#34d399', '#a78bfa'];
-    for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.left = '50%';
-        confetti.style.top = '50%';
-        const velocityX = (Math.random() - 0.5) * 15;
-        const velocityY = (Math.random() - 0.5) * 15 - 5;
-        document.body.appendChild(confetti);
-        let posX = window.innerWidth / 2;
-        let posY = window.innerHeight / 2;
-        let gravity = 0.4;
-        let opacity = 1;
-        const animate = () => {
-            posX += velocityX;
-            posY += velocityY + gravity;
-            gravity += 0.1;
-            opacity -= 0.02;
-            confetti.style.transform = `translate(${posX - window.innerWidth / 2}px, ${posY - window.innerHeight / 2}px) rotate(${posX}deg)`;
-            confetti.style.opacity = opacity;
-            if (opacity > 0) requestAnimationFrame(animate);
-            else confetti.remove();
-        };
-        requestAnimationFrame(animate);
-    }
-}
-
-/* Language rotation */
 const wishes = [
     "Happy New Year", "नव वर्ष की शुभकामनाएँ", "ਨਵੇਂ ਸਾਲ ਦੀਆਂ ਵਧਾਈਆਂ",
     "শুভ নববর্ষ", "నూతన సంవత్సర శుభాకాంక్షలు", "புத்தாண்டு வாழ்த்துகள்",
-    "പുതുവത്സരാശംസകൾ", "ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು", "ନବବର୍ଷର ଶୁଭେଚ୍ଛା", "નવા વર્ષની શુભકામનાઓ", "नवीन वर्षाच्या शुभेच्छा"
+    "പുതുവത്സരാശംസകൾ", "ಹೊಸ ವರ್ಷದ ಶುಭಾಶಯಗಳು", "ନବବର୍ଷର ଶୁଭେଚ୍ଛା",
+    "નવા વર્ષની શુભકામનાઓ", "नवीन वर्षाच्या शुभेच्छा"
 ];
 
 let idx = 0;
 const langText = document.getElementById("langText");
-
 setInterval(() => {
     langText.style.opacity = 0;
-
     setTimeout(() => {
         idx = (idx + 1) % wishes.length;
         langText.textContent = wishes[idx];
         langText.style.opacity = 1;
     }, 300);
-
 }, 2500);
-
-
 </script>
 
 </body>
 </html>
-
-
-
